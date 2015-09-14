@@ -1,5 +1,6 @@
 import os
 
+
 def file_must_exist(path):
     """
     Checks that the path specified exists
@@ -12,6 +13,7 @@ def file_must_exist(path):
         raise IOError("File doesn't exist: ", path)
     else:
         return True
+
 
 def dir_must_exist(path):
     """
@@ -29,9 +31,23 @@ def dir_must_exist(path):
 
     return True
 
+
 def listdir_nohidden(path):
     """
     List all files and subdirectories of a directory that aren't hidden.
     """
     dir_must_exist(path)
     return [i for i in os.listdir(path) if not i.startswith('.')]
+
+
+def delete_if_exists(path):
+    """
+    Trys to delete the file at the path specified if it exists.
+    Returns True on succesful deletion else returns False.
+    Either way there won't be a file at that location after running.
+    """
+    try:
+        os.remove(path)
+    except OSError:
+        return False
+    return True
