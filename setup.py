@@ -22,6 +22,7 @@ setup(
     license="GPL",
     keywords="pathops fileops file operations",
     url="https://github.com/Pezz89/fileops",
+    package_dir={'': 'src'},
     packages=find_packages(where='src', exclude=['tests']),
     install_requires=read('requirements.txt'),
 )
