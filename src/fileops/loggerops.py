@@ -4,7 +4,6 @@ import logging
 
 
 def create_logger(
-    logger_name,
     logger_streamlevel=logging.DEBUG,
     log_filename=None,
     logger_filelevel=logging.DEBUG
@@ -18,7 +17,7 @@ def create_logger(
         logger = create_logger(__name__)
     """
     # Create a logger object to use in the main script of an application
-    logger = logging.getLogger(logger_name)
+    logger = logging.getLogger()
     # Set the level of messages to be handled by the logger. defaults to all
     # messages
     logger.setLevel(logging.DEBUG)
