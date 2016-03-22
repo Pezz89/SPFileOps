@@ -1,7 +1,18 @@
 """Create a logger for applications to handle stream and file logging."""
 
 import logging
+import types
 
+def log_newline(self, how_many_lines=1):
+    # Switch handler, output a blank line
+    self.removeHandler(self.console_handler)
+    self.addHandler(self.blank_handler)
+    for i in range(how_many_lines):
+        self.info('')
+
+    # Switch back
+    self.removeHandler(self.blank_handler)
+    self.addHandler(self.console_handler)
 
 def create_logger(
     logger_streamlevel=logging.DEBUG,
